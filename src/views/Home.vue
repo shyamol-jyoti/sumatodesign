@@ -20,7 +20,7 @@
 		<p>
 			Sumato Design is based on the well known framework
 			<a
-				href="http://getbootstrap.com"
+				href="https://getbootstrap.com"
 				target="_blank"
 			>Bootstrap (v4.3.1)</a> &
 			<a href="https://bootstrap-vue.js.org" target="_blank">Bootstrap Vue (v2.0.0)</a> as of writing this documentation.
@@ -31,14 +31,13 @@
 		</div>
 
 		<div class="embed-responsive embed-responsive-16by9 bg-white rounded-lg shadow-sm mb-4">
-			<iframe class="embed-responsive-item" src="http://bootstrap-vue.js.org"></iframe>
+			<iframe class="embed-responsive-item" src="https://bootstrap-vue.js.org"></iframe>
 		</div>
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
 	name: "home",
