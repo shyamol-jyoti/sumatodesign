@@ -4,10 +4,7 @@
 		<hr>
 
 		<p>
-			<strong>Vue Snackbar:</strong> A Vue.JS plugin for creating and displaying snackbars following the material design policies created by Google.
-		</p>
-		<p>
-			Documentation available at
+			<strong>Vue Snackbar:</strong> A Vue.JS plugin for creating and displaying snackbars following the material design policies created by Google. Documentation available at
 			<a
 				href="https://vue-snack.surge.sh"
 				target="_blank"

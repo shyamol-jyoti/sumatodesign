@@ -4,7 +4,7 @@
 			<slot name="sidebar-brand"></slot>
 		</div>
 
-		<div v-for="(sidebaritem, index) in sidebaritems" :key="index" class="pr-4">
+		<template v-for="sidebaritem in sidebaritems">
 			<h6 class="sidebar-title mt-4 px-4 mb-1">{{ sidebaritem.title }}</h6>
 			<router-link
 				:to="link.to"
@@ -24,7 +24,7 @@
 				></eva-icon>
 				{{ link.title }}
 			</router-link>
-		</div>
+		</template>
 	</div>
 </template>
 

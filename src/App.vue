@@ -7,7 +7,7 @@
 		@click="closeOverlay()"
 	>
 		<div class="d-md-flex">
-			<div class="sidebar-nav bg-white shadow-sm" :class="{ 'is-open': toggleMenu == true}">
+			<div class="sidebar-nav bg-white shadow-sm pr-4" :class="{ 'is-open': toggleMenu == true}">
 				<sidebar-menu :sidebaritems="sidebaritems" class="sidebar-theme">
 					<template slot="sidebar-brand">
 						<a
