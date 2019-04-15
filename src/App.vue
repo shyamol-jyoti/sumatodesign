@@ -230,6 +230,7 @@ body {
 	transition: all 0.15s ease-out;
 }
 .sidebar-nav {
+	box-sizing: border-box;
 	display: block;
 	position: fixed;
 	content: "";
