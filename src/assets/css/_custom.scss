@@ -1,0 +1,20 @@
+// custom style here...
+
+body {
+  background-color: $gray-300;
+}
+
+// Helpers
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// Prism.js CSS
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: "Operator Mono", "Dank Mono", Consolas, Monaco, "Andale Mono",
+    "Ubuntu Mono", monospace;
+}
+.token.keyword {
+  font-style: italic;
+}

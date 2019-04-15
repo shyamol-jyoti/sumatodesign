@@ -1,0 +1,38 @@
+// Color system
+
+$white: #fff !default;
+$gray-100: #ffffff !default;
+$gray-200: #f8fafc !default;
+$gray-300: #f1f5f8 !default;
+$gray-400: #dae1e7 !default;
+$gray-500: #b8c2cc !default;
+$gray-600: #8795a1 !default;
+$gray-700: #606f7b !default;
+$gray-800: #3d4852 !default;
+$gray-900: #22292f !default;
+$black: #22292f !default;
+
+$primary: #3490dc !default;
+$secondary: $gray-600 !default;
+$success: #38c172 !default;
+$info: #4dc0b5 !default;
+$warning: #f6993f !default;
+$danger: #e3342f !default;
+$light: $gray-200 !default;
+$dark: $gray-800 !default;
+
+$enable-responsive-font-sizes: true;
+$font-family-sans-serif: "Inter UI";
+$font-family-monospace: "Operator Mono", "Dank Mono", SFMono-Regular, Menlo,
+  Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$border-color: $gray-400 !default;
+
+$border-radius: 0.375rem !default;
+$border-radius-lg: 0.375rem !default;
+$border-radius-sm: 0.375rem !default;
+
+$input-placeholder-color: $gray-500 !default;
+
+$body-color: $gray-700;
+$headings-color: $gray-900;
