@@ -25,10 +25,6 @@
 			>Inter</a>. This website itself uses the font family
 			<strong>Inter</strong>.
 		</p>
-
-		<div class="embed-responsive embed-responsive-16by9 bg-white rounded-lg shadow-sm mb-4">
-			<iframe class="embed-responsive-item" src="https://rsms.me/inter/"></iframe>
-		</div>
 	</div>
 </template>
 
