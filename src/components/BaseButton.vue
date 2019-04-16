@@ -1,5 +1,5 @@
 <template>
-	<button v-on="$listeners" :disabled="disabled" :class="btnClass">
+	<button v-on="$listeners" :disabled="disableButton" :class="btnClass">
 		<slot/>
 	</button>
 </template>
@@ -16,18 +16,19 @@ export default {
 
 	data() {
 		return {
-			loading: false
+			loading: false,
+			disableButton: this.disabled
 		};
 	},
 
 	methods: {
 		startLoading() {
 			this.loading = true;
-			this.disabled = true;
+			this.disableButton = true;
 		},
 		stopLoading() {
 			this.loading = false;
-			this.disabled = false;
+			this.disableButton = false;
 		}
 	},
 

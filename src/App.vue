@@ -118,8 +118,8 @@ export default {
 							// icon: "home"
 						},
 						{
-							to: "/calendar",
-							title: "Calendar"
+							to: "/input",
+							title: "Input"
 						},
 						{
 							to: "/checkbox",

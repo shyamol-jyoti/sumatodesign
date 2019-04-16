@@ -10,7 +10,7 @@ import Icons from "./views/Icons.vue";
 import Typography from "./views/Typography.vue";
 import Colors from "./views/Colors.vue";
 import Toast from "./views/Toast.vue";
-import Calendar from "./views/Calendar.vue";
+import Input from "./views/Input.vue";
 import Datepicker from "./views/Datepicker.vue";
 import Texteditor from "./views/Texteditor.vue";
 import Search from "./views/Search.vue";
@@ -39,9 +39,9 @@ export default new Router({
     },
 
     {
-      path: "/calendar",
-      name: "calendar",
-      component: Calendar
+      path: "/input",
+      name: "input",
+      component: Input
     },
 
     {

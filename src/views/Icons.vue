@@ -5,10 +5,17 @@
 
 		<p>Please do use the followings icons for you web based projects and applications.</p>
 
-		<p>
-			<a href="https://antonreshetov.github.io/vue-eva-icons" target="_blank">Vue Eva Icons</a> and
-			<a href="https://github.com/TerryMooreII/vue-zondicons" target="_blank">Vue Zondicons</a>
-		</p>
+		<ul class="pl-3">
+			<li>
+				<a href="https://antonreshetov.github.io/vue-eva-icons" target="_blank">Vue Eva Icons</a>
+			</li>
+			<li>
+				<a href="https://github.com/TerryMooreII/vue-zondicons" target="_blank">Vue Zondicons</a>
+			</li>
+			<li>
+				<a href="https://boxicons.com/" target="_blank">Box Icons</a>
+			</li>
+		</ul>
 	</div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-	<div :class="{'d-inline-block w-auto mr-4': stacked == false, 'd-flex w-100' : stacked == true}">
+	<div :class="{'d-inline-flex w-auto mr-4': stacked == false, 'd-flex w-100' : stacked == true}">
 		<label class="d-inline-flex align-items-center mb-0" :for="id">
 			<!-- Input element for the radio button -->
 			<input

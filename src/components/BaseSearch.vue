@@ -4,7 +4,7 @@
 			v-bind="$attrs"
 			v-bind:value="value"
 			v-on:input="$emit('input', $event.target.value)"
-			class="search-input form-control rounded shadow-sm"
+			class="search-input form-control rounded"
 			:class="searchClass"
 		>
 	</div>
@@ -28,26 +28,16 @@ export default {
 		searchClass: {
 			type: String
 		}
-		// placeholder: {
-		// 	type: String,
-		// 	default: "Search..."
-		// }
-	},
-
-	methods: {
-		// searchQuery() {
-		// 	this.$emit("input", this.search);
-		// }
 	}
 };
 </script>
 
 <style scoped>
 .search-input {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='24' height='24'%3E%3Cpath fill='%23dae1e7' d='M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23b8c2cc' d='M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z'/%3E%3C/svg%3E");
 	background-repeat: no-repeat;
+	background-position: center left calc(0.375em + 0.275rem);
 	padding-left: 42px;
-	background-position: 8px 6px;
 }
 .search-input.form-control-lg {
 	background-position: 10px 12px;

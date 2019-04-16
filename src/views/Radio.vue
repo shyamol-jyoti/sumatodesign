@@ -3,6 +3,10 @@
 		<h3>Radio</h3>
 		<hr>
 
+		<base-alert>
+			<strong>Note:</strong> All radio inputs must have a default value.
+		</base-alert>
+
 		<h6>Basic Example - Stacked Radio</h6>
 		<base-radio
 			class="mb-2 clearfix"
@@ -162,6 +166,7 @@ const code4 = `<label class="border px-3 py-2 bg-white rounded-pill mr-3 cursor-
 </label>`;
 
 import BaseRadio from "@/components/BaseRadio.vue";
+import BaseAlert from "@/components/BaseAlert.vue";
 
 export default {
 	data() {
@@ -188,7 +193,8 @@ export default {
 		};
 	},
 	components: {
-		BaseRadio
+		BaseRadio,
+		BaseAlert
 	}
 };
 </script>

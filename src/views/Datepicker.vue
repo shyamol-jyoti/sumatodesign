@@ -3,6 +3,10 @@
 		<h3 class="mb-3">Datepicker</h3>
 		<hr>
 
+		<base-alert>
+			<strong>Note:</strong> All datepicker inputs must have a default value.
+		</base-alert>
+
 		<p class="mb-5">
 			<strong>V-Calendar</strong> An elegant calendar and datepicker plugin for Vuejs. Documentation available at
 			<a
@@ -77,6 +81,8 @@ export default {
 	}
 };`;
 
+import BaseAlert from "@/components/BaseAlert.vue";
+
 export default {
 	data() {
 		return {
@@ -87,7 +93,7 @@ export default {
 
 			inputProps: {
 				id: "datepicker",
-				class: "date-input form-control shadow-sm col-6 col-md-2",
+				class: "date-input form-control col-6 col-md-2",
 				readonly: true
 			},
 
@@ -97,19 +103,23 @@ export default {
 			},
 			inputPropsRange: {
 				id: "datepicker",
-				class: "date-input form-control shadow-sm col-8 col-md-4",
+				class: "date-input form-control col-8 col-md-4",
 				readonly: true
 			}
 		};
+	},
+
+	components: {
+		BaseAlert
 	}
 };
 </script>
 
 <style>
 .date-input {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23dae1e7' d='M3,22h18c0.553,0,1-0.448,1-1V4c0-0.552-0.447-1-1-1h-4V2h-2v1H9V2H7v1H3C2.447,3,2,3.448,2,4v17C2,21.552,2.447,22,3,22z M4,20V10h16v10H4z M7,5v1h2V5h6v1h2V5h3v3H4V5H7z'/%3E%3Cpath fill='%23dae1e7' d='M7 12H9V14H7zM7 16H9V18H7zM11 12H13V14H11zM11 16H13V18H11zM15 12H17V14H15zM15 16H17V18H15z'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23b8c2cc' d='M3,22h18c0.553,0,1-0.448,1-1V4c0-0.552-0.447-1-1-1h-4V2h-2v1H9V2H7v1H3C2.447,3,2,3.448,2,4v17C2,21.552,2.447,22,3,22z M4,20V10h16v10H4z M7,5v1h2V5h6v1h2V5h3v3H4V5H7z'/%3E%3Cpath fill='%23b8c2cc' d='M7 12H9V14H7zM7 16H9V18H7zM11 12H13V14H11zM11 16H13V18H11zM15 12H17V14H15zM15 16H17V18H15z'/%3E%3C/svg%3E");
 	background-repeat: no-repeat;
-	background-position: 8px 6px;
+	background-position: center left calc(0.375em + 0.275rem);
 	padding-left: 42px !important;
 }
 .date-input.form-control-lg {
