@@ -1,7 +1,21 @@
 // custom style here...
 
+// Required for some issue to fixed
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $gray-300;
+}
+
+// Required for some issue to fixed
+dd,
+p {
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 // Helpers

@@ -87,6 +87,7 @@ input[type="radio"].check-custom ~ .check-toggle {
 	border: 2px solid #969696;
 	border-radius: 50%;
 	cursor: pointer;
+	box-sizing: border-box;
 }
 
 /* Styles for the hover state appearance of the custom radio button */

@@ -112,6 +112,7 @@ input[type="checkbox"].check-custom ~ .check-toggle {
 	// border-radius: 50%;
 	border-radius: 4px;
 	cursor: pointer;
+	box-sizing: border-box;
 }
 
 /* Styles for the hover state appearance of the custom checkbox */
