@@ -96,11 +96,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-:root {
+<style lang="scss">
+.ck.ck-editor {
+	position: relative;
 	--ck-border-radius: 6px;
 }
-// .ck-rounded-corners {
-// 	// border-radius: 6px !important;
-// }
+.ck.ck-toolbar {
+	background-color: transparent;
+	border: 0;
+}
+.ck.ck-dropdown {
+	background-color: #dae1e7;
+	border-radius: 6px;
+}
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused),
+.ck.ck-editor__main > .ck-editor__editable.ck-focused {
+	border-radius: 6px;
+	margin-top: 2px;
+	border: 2px solid;
+	border-color: #dae1e7;
+	padding: 0.375rem 1rem;
+}
+
+.ck.ck-editor__main > .ck-editor__editable.ck-focused {
+	border-color: lighten(#3490dc, 25%);
+}
 </style>
