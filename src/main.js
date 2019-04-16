@@ -17,7 +17,6 @@ Vue.config.productionTip = false;
 
 import "vue-prism-editor/dist/VuePrismEditor.css"; // import the styles
 import "prismjs/themes/prism-tomorrow.css";
-import "./assets/css/app.scss";
 
 new Vue({
   router,

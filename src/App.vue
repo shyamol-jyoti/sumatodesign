@@ -197,6 +197,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/css/app.scss";
+
 #app {
 	font-family: "Inter UI", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;

@@ -6,7 +6,7 @@
 		<div class="bg-white p-4 rounded shadow-sm">
 			<form @submit.prevent="submitForm">
 				<base-input
-					:has-error="errors['name'] ? true : false"
+					:has-error="true"
 					label="Name"
 					v-model="name"
 					id="name"

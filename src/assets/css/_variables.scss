@@ -55,7 +55,6 @@ $form-feedback-icon-valid: str-replace(
   "%23"
 ) !default;
 
-// url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='#{$form-feedback-icon-invalid-color}' d='M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 5v6h2V5H9zm0 8v2h2v-2H9z'/%3E%3C/svg%3E"),
 $form-feedback-icon-invalid: str-replace(
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='#{$form-feedback-icon-invalid-color}' d='M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z'/%3E%3C/svg%3E"),
   "#",
