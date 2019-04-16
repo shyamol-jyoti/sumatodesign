@@ -15,10 +15,9 @@ Vue.use(VCalendar, {});
 
 Vue.config.productionTip = false;
 
-import "./assets/css/app.scss";
 import "vue-prism-editor/dist/VuePrismEditor.css"; // import the styles
 import "prismjs/themes/prism-tomorrow.css";
-// import "v-calendar/src/styles/tailwind-lib.css";
+import "./assets/css/app.scss";
 
 new Vue({
   router,

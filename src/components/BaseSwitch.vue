@@ -57,6 +57,7 @@ export default {
 	transition: all 0.3s ease-in-out;
 	cursor: pointer;
 	background: #ddd;
+	box-sizing: border-box;
 }
 .switch-button-control .switch-button .button {
 	height: 1.6em;
@@ -65,6 +66,7 @@ export default {
 	border-radius: 1.6em;
 	background-color: #fff;
 	transition: all 0.3s ease-in-out;
+	box-sizing: border-box;
 }
 .switch-button-control .switch-button.enabled {
 	background-color: var(--color);

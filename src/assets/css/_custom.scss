@@ -3,7 +3,8 @@
 // Required for some issue to fixed
 *,
 :after,
-:before {
+:before,
+.form-control {
   box-sizing: border-box;
 }
 
