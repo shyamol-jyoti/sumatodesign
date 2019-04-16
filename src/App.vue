@@ -197,6 +197,9 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+	--ck-border-radius: 6px;
+}
 @import "./assets/css/app.scss";
 
 #app {

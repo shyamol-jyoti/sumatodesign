@@ -96,11 +96,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 :root {
 	--ck-border-radius: 6px;
 }
-.ck-rounded-corners {
-	// border-radius: 6px !important;
-}
+// .ck-rounded-corners {
+// 	// border-radius: 6px !important;
+// }
 </style>

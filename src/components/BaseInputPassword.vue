@@ -84,9 +84,8 @@ export default {
 	height: 24px;
 	text-align: center;
 	cursor: pointer;
-	// background: red;
 	background-repeat: no-repeat;
-	background-position: top right calc(0.375em + 0.275rem);
+	background-position: top right 10px;
 }
 .password-toggle-show {
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23b8c2cc' d='M21.948,11.684C21.927,11.617,19.633,5,12,5s-9.927,6.617-9.948,6.684c-0.069,0.205-0.069,0.428,0,0.633	C2.073,12.383,4.367,19,12,19s9.927-6.617,9.948-6.684C22.018,12.111,22.018,11.889,21.948,11.684z M12,16c-2.21,0-4-1.79-4-4	s1.79-4,4-4s4,1.79,4,4S14.21,16,12,16z'/%3E%3Ccircle fill='%23b8c2cc' cx='12' cy='12' r='2'/%3E%3C/svg%3E");
