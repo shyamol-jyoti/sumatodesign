@@ -117,10 +117,7 @@ export default {
 							roles: []
 							// icon: "home"
 						},
-						{
-							to: "/input",
-							title: "Input"
-						},
+
 						{
 							to: "/checkbox",
 							title: "Checkbox",
@@ -130,6 +127,10 @@ export default {
 						{
 							to: "/datepicker",
 							title: "Datepicker"
+						},
+						{
+							to: "/input",
+							title: "Input"
 						},
 						// {
 						// 	to: "/",

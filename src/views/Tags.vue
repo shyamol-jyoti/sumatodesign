@@ -131,7 +131,7 @@ export default {
 	color: #606f7b;
 	background-color: #fff;
 	background-clip: padding-box;
-	border: 2px solid #dae1e7;
+	border: 2px solid #dae1e7 !important;
 	border-radius: 0.375rem;
 }
 .theme-material.is-invalid .tag-selector--input {
