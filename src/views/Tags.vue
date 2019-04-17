@@ -141,8 +141,8 @@ export default {
 .theme-material .tag-selector--item {
 	background: #dae1e7;
 	color: #606f7b;
-	margin-right: 8px;
-	padding-left: 12px;
+	margin-right: 8px !important;
+	padding-left: 12px !important;
 	border-radius: 4px;
 }
 .theme-material .tag-selector--item:hover {
