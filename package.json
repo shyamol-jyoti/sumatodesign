@@ -11,12 +11,16 @@
     "@ckeditor/ckeditor5-build-classic": "^12.1.0",
     "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
     "bootstrap": "^4.3.1",
+    "filepond": "^4.4.0",
     "prismjs": "^1.16.0",
     "v-calendar": "^1.0.0-beta.4",
     "vue": "^2.6.6",
+    "vue-filepond": "^5.1.0",
     "vue-prism-editor": "^0.1.2",
     "vue-router": "^3.0.1",
-    "vue-snack": "^0.1.4"
+    "vue-snack": "^0.1.4",
+    "vue-tag-selector": "^0.2.4",
+    "vue2-dropzone": "^3.5.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",

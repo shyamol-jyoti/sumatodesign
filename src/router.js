@@ -14,6 +14,9 @@ import Input from "./views/Input.vue";
 import Datepicker from "./views/Datepicker.vue";
 import Texteditor from "./views/Texteditor.vue";
 import Search from "./views/Search.vue";
+import Tags from "./views/Tags.vue";
+import Uploader from "./views/Uploader.vue";
+import Table from "./views/Table.vue";
 
 Vue.use(Router);
 
@@ -93,6 +96,18 @@ export default new Router({
     },
 
     {
+      path: "/table",
+      name: "table",
+      component: Table
+    },
+
+    {
+      path: "/tags",
+      name: "tags",
+      component: Tags
+    },
+
+    {
       path: "/colors",
       name: "colors",
       component: Colors
@@ -102,6 +117,12 @@ export default new Router({
       path: "/toast",
       name: "toast",
       component: Toast
+    },
+
+    {
+      path: "/uploader",
+      name: "uploader",
+      component: Uploader
     },
 
     // {

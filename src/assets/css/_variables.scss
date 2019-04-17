@@ -32,6 +32,12 @@ $border-radius: 0.375rem !default;
 $border-radius-lg: 0.375rem !default;
 $border-radius-sm: 0.375rem !default;
 
+$link-color: $primary !important;
+// Remove this in production
+// $link-decoration: underline wavy lighten($primary, 32%) !important;
+$link-decoration: none !important;
+$link-hover-color: darken($primary, 15%) !important;
+
 $body-color: $gray-700;
 $headings-color: $gray-900;
 

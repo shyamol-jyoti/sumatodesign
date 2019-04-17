@@ -5,7 +5,7 @@
 :after,
 :before,
 .form-control {
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 body {
@@ -27,6 +27,9 @@ p {
 // Helpers
 .cursor-pointer {
   cursor: pointer;
+}
+.fill-current {
+  fill: currentColor;
 }
 
 // Prism.js CSS

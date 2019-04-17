@@ -15,9 +15,6 @@ Vue.use(VCalendar, {});
 
 Vue.config.productionTip = false;
 
-import "vue-prism-editor/dist/VuePrismEditor.css"; // import the styles
-import "prismjs/themes/prism-tomorrow.css";
-
 new Vue({
   router,
   render: h => h(App)

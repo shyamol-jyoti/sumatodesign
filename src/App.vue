@@ -156,6 +156,17 @@ export default {
 							// icon: "home"
 						},
 						{
+							to: "/table",
+							title: "Table",
+							roles: []
+						},
+						{
+							to: "/tags",
+							title: "Tags",
+							roles: []
+							// icon: "home"
+						},
+						{
 							to: "/texteditor",
 							title: "Texteditor",
 							roles: []
@@ -164,6 +175,11 @@ export default {
 						{
 							to: "/toast",
 							title: "Toast",
+							roles: []
+						},
+						{
+							to: "/uploader",
+							title: "Uploader",
 							roles: []
 						}
 					]
@@ -200,6 +216,8 @@ export default {
 :root {
 	--ck-border-radius: 6px;
 }
+@import "../node_modules/vue-prism-editor/dist/VuePrismEditor.css";
+@import "../node_modules/prismjs/themes/prism-tomorrow.css";
 @import "./assets/css/app.scss";
 
 #app {
@@ -287,14 +305,15 @@ $sidebar-link-hover-bg: lighten(#e3342f, 42%);
 	font-weight: bold;
 }
 .sidebar-theme .sidebar-link {
-	color: $sidebar-link-color;
+	color: $sidebar-link-color !important;
 	font-weight: 400;
 	font-size: 0.95rem;
 	transition: all 0.3s ease;
+	text-decoration: none !important;
 
 	&:hover,
 	&.router-link-exact-active {
-		color: $sidebar-link-hover-color;
+		color: $sidebar-link-hover-color !important;
 		text-decoration: none;
 		background-color: $sidebar-link-hover-bg;
 		border-top-right-radius: 50px;

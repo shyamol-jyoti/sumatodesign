@@ -2889,6 +2889,11 @@ dotenv@^6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
+dropzone@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.5.1.tgz#06e2f513e61d6aa363d4b556f18574f47cf7ba26"
+  integrity sha512-3VduRWLxx9hbVr42QieQN25mx/I61/mRdUSuxAmDGdDqZIN8qtP7tcKMa3KfpJjuGjOJGYYUzzeq6eGDnkzesA==
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -3495,6 +3500,11 @@ file-loader@^3.0.1:
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
+
+filepond@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/filepond/-/filepond-4.4.0.tgz#0c6d567487f9b9180ecdc2727d65c03d386f23e5"
+  integrity sha512-HXKIVqWOo6GPkDUbgCfIkaj5tm68eKTaLfg8ZoGZf1ekkcGwTdZP+MVueOXGX8gRh5qrbp/m1VWr2MA6U991Mg==
 
 filesize@^3.6.1:
   version "3.6.1"
@@ -8186,6 +8196,11 @@ vue-eva-icons@^1.1.0:
     eva-icons "^1.1.0"
     vue "^2.5.17"
 
+vue-filepond@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/vue-filepond/-/vue-filepond-5.1.0.tgz#da928f7b981fcf738b7bd7f5a0a9b6cfc0d2a480"
+  integrity sha512-un5SJGQv7ijzFajw7iDddRU8XaRfjtkytHtwUwfW1nqi2N+pXKWs1QDrfqm2hhvTtvbDNaWWmeChCBNjA06RgA==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
@@ -8229,6 +8244,13 @@ vue-style-loader@^4.1.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
+vue-tag-selector@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/vue-tag-selector/-/vue-tag-selector-0.2.4.tgz#3a216b5d4f2296a1c98c87a4c4073e70d4d11289"
+  integrity sha512-8VDWBoIbbGEh9m8gH0NZwGNuGB64Av0dPP768XQU6bbH61iJv4S6sZT9cDJeTNybKE0Cz8W+/38gDBIix7cklA==
+  dependencies:
+    vue "^2.5.17"
+
 vue-template-compiler@^2.5.21:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.6.10.tgz#323b4f3495f04faa3503337a82f5d6507799c9cc"
@@ -8241,6 +8263,13 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue2-dropzone@^3.5.8:
+  version "3.5.8"
+  resolved "https://registry.yarnpkg.com/vue2-dropzone/-/vue2-dropzone-3.5.8.tgz#cbe92d5424b5cc62c4d4ad62814d0cf6f3bb6cda"
+  integrity sha512-32rLGSx+mLKhyzxRz4CdeNT9JmbO6NsYX8m83WYqrf2ilRbm6KSZmUqZ8EIT+2dwq8EzY9jdrWlWuZJRBFPUGw==
+  dependencies:
+    dropzone "^5.5.1"
 
 vue@^2.5.17, vue@^2.6.6:
   version "2.6.10"

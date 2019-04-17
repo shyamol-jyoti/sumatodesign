@@ -34,6 +34,9 @@
 </template>
 
 <script>
+import vueDropzone from "vue2-dropzone";
+import "../assets/css/vue2Dropzone.css";
+
 import BaseButton from "@/components/BaseButton.vue";
 import BaseInput from "@/components/BaseInput.vue";
 import BaseInputPassword from "@/components/BaseInputPassword.vue";
@@ -49,7 +52,8 @@ export default {
 	components: {
 		BaseButton,
 		BaseInput,
-		BaseInputPassword
+		BaseInputPassword,
+		vueDropzone
 	},
 
 	methods: {
