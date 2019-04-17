@@ -15,7 +15,7 @@
 		>{{ option }}</base-checkbox>
 
 		<div class="alert alert-light shadow-sm my-3">
-			<pre>{{ optionSelected }}</pre>
+			<code>{{ optionSelected }}</code>
 		</div>
 
 		<h6 class="mb-3 mt-5">How to use</h6>
@@ -33,7 +33,7 @@
 		>{{ option.name }}</base-checkbox>
 
 		<div class="alert alert-light shadow-sm my-3">
-			<pre>{{ optionObjectSelected }}</pre>
+			<code>{{ optionObjectSelected }}</code>
 		</div>
 
 		<h6 class="mb-3 mt-5">How to use</h6>

@@ -124,7 +124,7 @@ export default {
 .theme-material .tag-selector--input {
 	display: flex;
 	min-height: calc(1.5em + 1.1rem + 4px);
-	padding: 0.35rem 0.95rem 0 0.95rem;
+	padding: 0.35rem 0.95rem 0 0.95rem !important;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
