@@ -1424,6 +1424,11 @@ autoprefixer@^9.4.8:
     postcss "^7.0.14"
     postcss-value-parser "^3.3.1"
 
+autosize@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/autosize/-/autosize-4.0.2.tgz#073cfd07c8bf45da4b9fd153437f5bafbba1e4c9"
+  integrity sha512-jnSyH2d+qdfPGpWlcuhGiHmqBJ6g3X+8T+iRwFrHPLVcdoGJE/x6Qicm6aDHfTsbgZKxyV8UU/YB2p4cjKDRRA==
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -6081,6 +6086,11 @@ popper.js@^1.14.7:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.15.0.tgz#5560b99bbad7647e9faa475c6b8056621f5a4ff2"
   integrity sha512-w010cY1oCUmI+9KwwlWki+r5jxKfTFDVoadl7MSrIujHU5MJ5OR6HTDj6Xo8aoR/QsA56x8jKjA59qGH4ELtrA==
+
+portal-vue@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/portal-vue/-/portal-vue-2.1.0.tgz#1f5fb6d15111ee37575fc7a581306fda222b2361"
+  integrity sha512-Bl/26vOn7+z0qlJr7rSM/vd9zUL9hvXYLereFF9RAT7gpmTGpDSYUE/2zZKyB6kQeumVJ0rDgEa+k1+mGOpM0g==
 
 portfinder@^1.0.20, portfinder@^1.0.9:
   version "1.0.20"

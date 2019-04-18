@@ -1,68 +1,76 @@
 <template>
-	<div
-		id="app"
-		class="wrapper"
-		:class="{ 'is-open': toggleMenu == true}"
-		ref="sitewrapper"
-		@click="closeOverlay()"
-	>
-		<div class="d-md-flex">
-			<div class="sidebar-nav bg-white shadow-sm pr-4" :class="{ 'is-open': toggleMenu == true}">
-				<sidebar-menu :sidebaritems="sidebaritems" class="sidebar-theme">
-					<template slot="sidebar-brand">
+	<div>
+		<div
+			id="app"
+			class="wrapper"
+			:class="{ 'is-open': toggleMenu == true}"
+			ref="sitewrapper"
+			@click="closeOverlay()"
+		>
+			<div class="d-md-flex">
+				<div class="sidebar-nav bg-white shadow-sm pr-4" :class="{ 'is-open': toggleMenu == true}">
+					<sidebar-menu :sidebaritems="sidebaritems" class="sidebar-theme">
+						<template slot="sidebar-brand">
+							<a
+								href="#/"
+								class="text-decoration-none h5 mb-0 py-3 px-4 d-block text-dark"
+								style="letter-spacing: -0.05em"
+							>
+								<span class="text-danger font-weight-bold">Sumato</span> Design.
+							</a>
+						</template>
+					</sidebar-menu>
+
+					<p class="mt-5 px-4 small">
+						2019 &copy; Sumato Globaltech
+						<br>Made in Guwahati.
+					</p>
+				</div>
+
+				<div class="col-md-8 mx-auto">
+					<nav class="navbar fixed-top navbar-light bg-white shadow-sm border-0">
+						<button
+							type="button"
+							class="btn pl-0 py-0 btn-transparent btn-sm d-block d-md-none text-muted"
+							@click.prevent="toggleMenu = !toggleMenu"
+						>
+							<svg
+								id="i-menu"
+								viewBox="0 0 32 32"
+								width="32"
+								height="32"
+								fill="none"
+								stroke="currentcolor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+							>
+								<path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+							</svg>
+						</button>
 						<a
+							class="navbar-brand mr-auto mx-1 font-weight-bold"
 							href="#/"
-							class="text-decoration-none h5 mb-0 py-3 px-4 d-block text-dark"
 							style="letter-spacing: -0.05em"
 						>
 							<span class="text-danger font-weight-bold">Sumato</span> Design.
 						</a>
-					</template>
-				</sidebar-menu>
 
-				<p class="mt-5 px-4 small">
-					2019 &copy; Sumato Globaltech
-					<br>Made in Guwahati.
-				</p>
-			</div>
+						<div class="ml-auto small">v 1.0.0</div>
+					</nav>
 
-			<div class="col-md-8 mx-auto">
-				<nav class="navbar fixed-top navbar-light bg-white shadow-sm border-0">
-					<button
-						type="button"
-						class="btn pl-0 py-0 btn-transparent btn-sm d-block d-md-none text-muted"
-						@click.prevent="toggleMenu = !toggleMenu"
-					>
-						<svg
-							id="i-menu"
-							viewBox="0 0 32 32"
-							width="32"
-							height="32"
-							fill="none"
-							stroke="currentcolor"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-						>
-							<path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
-						</svg>
-					</button>
-					<a
-						class="navbar-brand mr-auto mx-1 font-weight-bold"
-						href="#/"
-						style="letter-spacing: -0.05em"
-					>
-						<span class="text-danger font-weight-bold">Sumato</span> Design.
-					</a>
-
-					<div class="ml-auto small">v 1.0.0</div>
-				</nav>
-
-				<div class="main-content pt-3 pb-5">
-					<router-view/>
+					<div class="main-content pt-3 pb-5">
+						<router-view/>
+					</div>
 				</div>
 			</div>
 		</div>
+		<portal-target name="modal-destination">
+			<!--
+  This component can be located anwhere in your App.
+  The slot content of the above portal component will be rendered here.
+			-->
+		</portal-target>
 	</div>
 </template>
 
@@ -121,6 +129,12 @@ export default {
 						{
 							to: "/checkbox",
 							title: "Checkbox",
+							roles: []
+							// icon: "home"
+						},
+						{
+							to: "/confirm",
+							title: "Confirm",
 							roles: []
 							// icon: "home"
 						},

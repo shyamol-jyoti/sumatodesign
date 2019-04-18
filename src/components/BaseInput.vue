@@ -10,8 +10,10 @@
 			:disabled="disabled"
 			:class="hasError ? 'is-invalid' : ''"
 			@keydown="$emit('keydown', $event)"
+			@blur="$emit('blur', $event)"
+			@keyup="$emit('keyup', $event)"
 		>
-
+		<small v-if="helpText" class="d-block form-text text-muted">{{ helpText }}</small>
 		<div v-if="hasError == true" class="invalid-feedback">
 			<slot name="invalid-feedback"></slot>
 		</div>
@@ -33,7 +35,7 @@ export default {
 			default: "text"
 		},
 		value: {
-			type: String
+			type: [String, Number]
 		},
 		disabled: {
 			type: Boolean,
@@ -42,6 +44,9 @@ export default {
 		hasError: {
 			type: Boolean,
 			default: false
+		},
+		helpText: {
+			type: String
 		}
 	}
 };

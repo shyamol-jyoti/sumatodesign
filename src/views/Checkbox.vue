@@ -22,6 +22,7 @@
 		<prism-editor language="html" :code="code" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 
 		<h6 class="mt-5">Example with Object</h6>
+		<label for class="mb-1">Select Colors</label>
 		<base-checkbox
 			name="optionSelected"
 			v-model="optionObjectSelected"

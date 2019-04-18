@@ -1,23 +1,31 @@
 <template>
-	<div :class="{'d-inline-flex w-auto mr-4': stacked == false, 'd-flex w-100' : stacked == true}">
-		<label class="d-inline-flex align-items-center mb-0" :for="id">
+	<div>
+		<label class="mb-1 d-block">{{ label }}</label>
+		<label
+			class="align-items-center mb-2 clearfix"
+			:class="[{'d-inline-flex mr-4': stacked == false, 'd-flex w-100': stacked == true}, classes]"
+			v-for="option in options"
+			:key="option.value"
+			:for="option.value"
+		>
 			<!-- Input element for the radio button -->
 			<input
-				:id="id"
+				:id="option.value"
 				type="radio"
 				class="check-custom"
 				:name="name"
-				:value="value"
-				:checked="modelValue == value ? true : false"
-				@change="$emit('change', value)"
+				:checked="modelValue == option.value ? true : false"
+				@change="$emit('change', option.value)"
 			>
 			<!-- Customization element for the radio button -->
-			<span class="check-toggle" :class="sizeClass"></span>
+			<span class="check-toggle flex-shrink-0" :class="sizeClass"></span>
 
 			<span class="ml-3">
-				<slot></slot>
+				<slot :row="option"></slot>
 			</span>
 		</label>
+
+		<small v-if="helpText" class="d-block form-text text-muted">{{ helpText }}</small>
 	</div>
 </template>
 
@@ -35,16 +43,12 @@ export default {
 			type: String,
 			default: ""
 		},
-		value: {
-			type: [String, Object, Array],
-			default: ""
-		},
 		name: {
 			type: String,
 			default: ""
 		},
-		id: {
-			type: [String, Number],
+		label: {
+			type: String,
 			default: ""
 		},
 		stacked: {
@@ -54,6 +58,16 @@ export default {
 		size: {
 			type: String,
 			default: "medium"
+		},
+		options: {
+			type: [Array, Object]
+		},
+		helpText: {
+			type: String,
+			default: ""
+		},
+		classes: {
+			type: String
 		}
 	},
 

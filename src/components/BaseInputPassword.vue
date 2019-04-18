@@ -18,6 +18,8 @@
 			@click="togglePassword($event)"
 		></span>
 
+		<small v-if="helpText" class="d-block form-text text-muted">{{ helpText }}</small>
+
 		<div v-if="hasError == true" class="invalid-feedback">
 			<slot name="invalid-feedback"></slot>
 		</div>
@@ -48,6 +50,9 @@ export default {
 		hasError: {
 			type: Boolean,
 			default: false
+		},
+		helpText: {
+			type: String
 		}
 	},
 
@@ -58,8 +63,7 @@ export default {
 	},
 
 	methods: {
-		togglePassword(ev) {
-			// console.log(this.type);
+		togglePassword() {
 			if (this.currentType == "password") {
 				this.currentType = "text";
 			} else {

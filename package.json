@@ -10,8 +10,10 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^12.1.0",
     "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
+    "autosize": "^4.0.2",
     "bootstrap": "^4.3.1",
     "filepond": "^4.4.0",
+    "portal-vue": "^2.1.0",
     "prismjs": "^1.16.0",
     "v-calendar": "^1.0.0-beta.4",
     "vue": "^2.6.6",

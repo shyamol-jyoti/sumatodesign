@@ -3,44 +3,35 @@
 		<h3>Radio</h3>
 		<hr>
 
-		<base-alert>
+		<base-alert class="mb-4">
 			<strong>Note:</strong> All radio inputs must have a default value.
 		</base-alert>
 
-		<h6>Basic Example - Stacked Radio</h6>
+		<h6 class="mb-3">Basic Example - Stacked Radio</h6>
 		<base-radio
-			class="mb-2 clearfix"
+			label="Select Gender"
+			help-text="select aleast one"
 			v-model="genderType"
-			v-for="gender in genders"
-			:key="gender"
-			:id="gender"
+			:options="genders"
 			name="gender"
-			:model-value="gender"
-			:value="gender"
-		>{{ gender }}</base-radio>
+		>
+			<template slot-scope="option">{{ option.row.label }}</template>
+		</base-radio>
 
 		<div class="alert alert-light shadow-sm my-3">
-			<pre class="mb-0">{{ genderType }}</pre>
+			<code class="mb-0">{{ genderType }}</code>
 		</div>
 
 		<h6 class="mt-4 mb-3">How to use</h6>
 		<prism-editor language="html" :code="code" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 
 		<h6 class="mt-5">Basic Example - Inline Radio</h6>
-		<base-radio
-			class="mb-2 clearfix"
-			v-model="colorType"
-			v-for="color in colors"
-			:key="color"
-			:id="color"
-			name="color"
-			:model-value="color"
-			:value="color"
-			:stacked="false"
-		>{{ color }}</base-radio>
+		<base-radio v-model="colorType" :options="colors" name="color" :stacked="false">
+			<template slot-scope="option">{{ option.row.label }}</template>
+		</base-radio>
 
 		<div class="alert alert-light shadow-sm my-3">
-			<pre class="mb-0">{{ colorType }}</pre>
+			<code class="mb-0">{{ colorType }}</code>
 		</div>
 
 		<h6 class="mt-4 mb-3">How to use</h6>
@@ -48,25 +39,27 @@
 
 		<h6 class="mt-5">Example with Custom label</h6>
 		<base-radio
-			class="mb-3 clearfix border px-3 py-2 rounded-lg"
+			classes="border p-3 rounded col-4"
+			label="Payment Mode"
+			help-text="Please select aleast one"
 			v-model="paymentModeSelected"
-			v-for="payment in paymentModes"
-			:key="payment"
-			:id="payment"
+			:options="paymentModes"
 			name="paymentMode"
-			:model-value="payment"
-			:value="payment"
+			:stacked="false"
+			size="large"
 		>
-			<div class="d-flex">
-				<div>
-					<p class="text-black mb-0">{{ payment }}</p>
-					<p class="text-muted small mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+			<template slot-scope="option">
+				<div class="d-flex">
+					<div class>
+						<h5>{{ option.row.label }}</h5>
+						<span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+					</div>
 				</div>
-			</div>
+			</template>
 		</base-radio>
 
 		<div class="alert alert-light shadow-sm my-3">
-			<pre class="mb-0">{{ paymentModeSelected }}</pre>
+			<code class="mb-0">{{ paymentModeSelected }}</code>
 		</div>
 
 		<h6 class="mt-4 mb-3">How to use</h6>
@@ -90,44 +83,38 @@
 
 <script>
 const code = `<base-radio
-	class="mb-2 clearfix"
+	label="Select Gender"
+	help-text="select aleast one"
 	v-model="genderType"
-	v-for="gender in genders"
-	:key="gender"
-	:id="gender"
+	:options="genders"
 	name="gender"
-	:model-value="gender"
-	:value="gender"
->{{ gender }}</base-radio>`;
+>
+	<template scope="option">{{ option.row.label }}</template>
+</base-radio>
+`;
 
-const code2 = `<base-radio
-	class="mb-2 clearfix"
-	v-model="colorType"
-	v-for="color in colors"
-	:key="color"
-	:id="color"
-	name="color"
-	:model-value="color"
-	:value="color"
-	:stacked="false"
->{{ color }}</base-radio>`;
+const code2 = `<base-radio v-model="colorType" :options="colors" name="color" :stacked="false">
+	<template scope="option">{{ option.row.label }}</template>
+</base-radio>`;
 
 const code3 = `<base-radio
-	class="mb-3 clearfix border px-3 py-2 rounded-lg"
+	classes="border p-3 rounded col-4"
+	label="Payment Mode"
+	help-text="Please select aleast one"
 	v-model="paymentModeSelected"
-	v-for="payment in paymentModes"
-	:key="payment"
-	:id="payment"
+	:options="paymentModes"
 	name="paymentMode"
-	:model-value="payment"
-	:value="payment"
+	:stacked="false"
+	size="large"
 >
-	<div class="d-flex">
-		<div>
-			<p class="text-black mb-0">{{ payment }}</p>
-			<p class="text-muted small mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+	<template scope="option">
+		<div class="d-flex">
+			<div class>
+				<h5>{{ option.row.label }}</h5>
+				<span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+			</div>
 		</div>
-	</div>
+	</template>
 </base-radio>`;
 
 const jsCode = `import BaseRadio from "@/components/BaseRadio.vue";
@@ -135,19 +122,31 @@ const jsCode = `import BaseRadio from "@/components/BaseRadio.vue";
 export default {
 	data() {
 		return {
-			genderType: "Male",
-			genders: ["Male", "Female", "Others"],
+			genderType: "male",
+			genders: [
+				{ label: "Male", value: "male" },
+				{ label: "Female", value: "female" },
+				{ label: "Other", value: "others" }
+			],
 
-			colorType: "Red",
-			colors: ["Red", "Green", "Yellow"],
+			colorType: "red",
+			colors: [
+				{ label: "Red", value: "red" },
+				{ label: "Green", value: "green" },
+				{ label: "Yellow", value: "yellow" }
+			],
 
 			paymentModes: [
-				"Online",
-				"Internet Banking",
-				"CreditCard",
-				"Debit Card"
+				{
+					label: "Debit/Credit Card",
+					value: "debit-credit"
+				},
+				{
+					label: "Cash",
+					value: "cash"
+				}
 			],
-			paymentModeSelected: "Online"
+			paymentModeSelected: "cash"
 		};
 	},
 	components: {
@@ -177,19 +176,31 @@ export default {
 			code4: code4,
 			jsCode: jsCode,
 
-			genderType: "Male",
-			genders: ["Male", "Female", "Others"],
+			genderType: "male",
+			genders: [
+				{ label: "Male", value: "male" },
+				{ label: "Female", value: "female" },
+				{ label: "Other", value: "others" }
+			],
 
-			colorType: "Red",
-			colors: ["Red", "Green", "Yellow"],
+			colorType: "red",
+			colors: [
+				{ label: "Red", value: "red" },
+				{ label: "Green", value: "green" },
+				{ label: "Yellow", value: "yellow" }
+			],
 
 			paymentModes: [
-				"Online",
-				"Internet Banking",
-				"CreditCard",
-				"Debit Card"
+				{
+					label: "Debit/Credit Card",
+					value: "debit-credit"
+				},
+				{
+					label: "Cash",
+					value: "cash"
+				}
 			],
-			paymentModeSelected: "Online"
+			paymentModeSelected: "cash"
 		};
 	},
 	components: {

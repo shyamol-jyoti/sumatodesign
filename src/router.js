@@ -17,6 +17,7 @@ import Search from "./views/Search.vue";
 import Tags from "./views/Tags.vue";
 import Uploader from "./views/Uploader.vue";
 import Table from "./views/Table.vue";
+import Confirm from "./views/Confirm.vue";
 
 Vue.use(Router);
 
@@ -51,6 +52,11 @@ export default new Router({
       path: "/checkbox",
       name: "checkbox",
       component: Checkbox
+    },
+    {
+      path: "/confirm",
+      name: "confirm",
+      component: Confirm
     },
 
     {
