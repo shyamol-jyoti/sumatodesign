@@ -158,6 +158,9 @@ export default {
 	color: #8795a1;
 	margin: 4px 4px;
 }
+.theme-material .tag-selector--remove svg {
+	display: block !important;
+}
 .theme-material .tag-selector--item,
 .theme-material .tag-selector-input {
 	height: 32px;

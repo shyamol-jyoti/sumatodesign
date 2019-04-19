@@ -125,7 +125,12 @@ export default {
 							roles: []
 							// icon: "home"
 						},
-
+						{
+							to: "/card",
+							title: "Card",
+							roles: []
+							// icon: "home"
+						},
 						{
 							to: "/checkbox",
 							title: "Checkbox",
@@ -143,8 +148,16 @@ export default {
 							title: "Datepicker"
 						},
 						{
+							to: "/dropdown",
+							title: "Dropdown Menu"
+						},
+						{
 							to: "/input",
 							title: "Input"
+						},
+						{
+							to: "/modal",
+							title: "Modal"
 						},
 						// {
 						// 	to: "/",
@@ -161,6 +174,12 @@ export default {
 						{
 							to: "/search",
 							title: "Search",
+							roles: []
+							// icon: "home"
+						},
+						{
+							to: "/spinners",
+							title: "Spinners",
 							roles: []
 							// icon: "home"
 						},

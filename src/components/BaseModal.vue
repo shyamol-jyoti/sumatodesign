@@ -2,28 +2,11 @@
 	<portal to="modal-destination">
 		<transition name="modal">
 			<div class="modal-mask" @click="close" v-show="show">
-				<div class="modal-container d-flex my-5 p-4" @click.stop>
-					<div
-						class="bg-danger modal-icon rounded-circle d-inline-flex align-items-center justify-content-center flex-shrink-0 mr-3 mr-md-4"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							class="fill-current text-white"
-							width="32"
-							height="32"
-							viewBox="0 0 24 24"
-						>
-							<path
-								d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.514,2,12,2z M13,17h-2v-6h2V17z M13,9h-2V7h2V9z"
-							></path>
-						</svg>
-					</div>
-					<div class="flex-1">
-						<h5 class="font-weight-bold">
-							<slot name="title"></slot>
-						</h5>
-						<slot name="body"></slot>
-					</div>
+				<div class="modal-container my-5 p-4" @click.stop>
+					<h5 class="font-weight-bold">
+						<slot name="title"></slot>
+					</h5>
+					<slot name="body"></slot>
 				</div>
 			</div>
 		</transition>
@@ -32,7 +15,7 @@
 
 <script>
 export default {
-	name: "BaseConfirm",
+	name: "BaseModal",
 
 	props: {
 		show: {
@@ -82,19 +65,11 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.modal-icon {
-	width: 48px;
-	height: 48px;
-}
 
 @media screen and (min-width: 720px) {
 	.modal-container {
 		max-width: 480px;
 	}
-	// .modal-icon {
-	// 	width: 54px;
-	// 	height: 54px;
-	// }
 }
 
 /*

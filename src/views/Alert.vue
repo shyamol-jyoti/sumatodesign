@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h3>Alerts</h3>
+		<h3 class="mb-3">Alerts</h3>
 		<hr>
 
 		<h6 class="mb-3">Examples without Icon</h6>

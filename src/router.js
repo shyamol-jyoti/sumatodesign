@@ -1,23 +1,28 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Button from "./views/Button.vue";
+
 import Alert from "./views/Alert.vue";
+import Button from "./views/Button.vue";
+import Card from "./views/Card.vue";
 import Checkbox from "./views/Checkbox.vue";
-import Radio from "./views/Radio.vue";
-import Switch from "./views/Switch.vue";
-import Icons from "./views/Icons.vue";
-import Typography from "./views/Typography.vue";
 import Colors from "./views/Colors.vue";
-import Toast from "./views/Toast.vue";
-import Input from "./views/Input.vue";
-import Datepicker from "./views/Datepicker.vue";
-import Texteditor from "./views/Texteditor.vue";
-import Search from "./views/Search.vue";
-import Tags from "./views/Tags.vue";
-import Uploader from "./views/Uploader.vue";
-import Table from "./views/Table.vue";
 import Confirm from "./views/Confirm.vue";
+import Datepicker from "./views/Datepicker.vue";
+import Dropdown from "./views/Dropdown.vue";
+import Icons from "./views/Icons.vue";
+import Input from "./views/Input.vue";
+import Modal from "./views/Modal.vue";
+import Radio from "./views/Radio.vue";
+import Search from "./views/Search.vue";
+import Spinners from "./views/Spinners.vue";
+import Switch from "./views/Switch.vue";
+import Table from "./views/Table.vue";
+import Tags from "./views/Tags.vue";
+import Texteditor from "./views/Texteditor.vue";
+import Toast from "./views/Toast.vue";
+import Typography from "./views/Typography.vue";
+import Uploader from "./views/Uploader.vue";
 
 Vue.use(Router);
 
@@ -111,6 +116,28 @@ export default new Router({
       path: "/tags",
       name: "tags",
       component: Tags
+    },
+    {
+      path: "/modal",
+      name: "modal",
+      component: Modal
+    },
+
+    {
+      path: "/card",
+      name: "card",
+      component: Card
+    },
+    {
+      path: "/spinners",
+      name: "spinners",
+      component: Spinners
+    },
+
+    {
+      path: "/dropdown",
+      name: "dropdown",
+      component: Dropdown
     },
 
     {
