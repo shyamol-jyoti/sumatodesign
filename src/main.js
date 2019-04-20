@@ -7,6 +7,7 @@ import VuePrismEditor from "vue-prism-editor";
 import VueSnackbar from "vue-snack";
 import VCalendar from "v-calendar";
 import PortalVue from "portal-vue";
+import VueSelect from "vue-cool-select";
 
 Vue.component("prism-editor", VuePrismEditor);
 Vue.use(EvaIcons);
@@ -14,6 +15,10 @@ Vue.use(VueSnackbar, { close: true, position: "bottom-left" });
 // Use v-calendar & v-date-picker components
 Vue.use(VCalendar, {});
 Vue.use(PortalVue);
+
+Vue.use(VueSelect, {
+  theme: "bootstrap" // or 'material-design'
+});
 
 Vue.config.productionTip = false;
 

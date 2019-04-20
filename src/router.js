@@ -13,8 +13,10 @@ import Dropdown from "./views/Dropdown.vue";
 import Icons from "./views/Icons.vue";
 import Input from "./views/Input.vue";
 import Modal from "./views/Modal.vue";
+import MultiselectSimple from "./views/MultiselectSimple.vue";
 import Radio from "./views/Radio.vue";
 import Search from "./views/Search.vue";
+import Select from "./views/Select.vue";
 import Spinners from "./views/Spinners.vue";
 import Switch from "./views/Switch.vue";
 import Table from "./views/Table.vue";
@@ -110,6 +112,18 @@ export default new Router({
       path: "/table",
       name: "table",
       component: Table
+    },
+
+    {
+      path: "/select",
+      name: "select",
+      component: Select
+    },
+
+    {
+      path: "/multiselect-simple",
+      name: "multiselect-simple",
+      component: MultiselectSimple
     },
 
     {

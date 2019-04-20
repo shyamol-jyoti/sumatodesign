@@ -22,8 +22,7 @@
 			<a
 				href="https://getbootstrap.com"
 				target="_blank"
-			>Bootstrap (v4.3.1)</a> &
-			<a href="https://bootstrap-vue.js.org" target="_blank">Bootstrap Vue (v2.0.0)</a> as of writing this documentation.
+			>Bootstrap (v4.3.1)</a> as of writing this documentation.
 		</p>
 	</div>
 </template>

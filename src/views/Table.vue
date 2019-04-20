@@ -262,6 +262,17 @@ const code = `<div class="bg-white rounded shadow overflow-hidden">
 const cssCode = `.table-fixed-column {
 	position: relative;
 }
+.table-fixed-column::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: linear-gradient(to right, transparent, white);
+}
 .table-fixed-column thead th {
 	background-color: #f8fafc;
 	border: none;
@@ -359,6 +370,18 @@ export default {
 .table-fixed-column {
 	position: relative;
 }
+.table-fixed-column::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 60px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: linear-gradient(to right, transparent, white);
+}
+
 .table-fixed-column thead th {
 	background-color: #f8fafc;
 	border: none;

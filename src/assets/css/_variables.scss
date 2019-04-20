@@ -58,6 +58,8 @@ $input-border-width: 2px !default;
 $input-focus-width: 0;
 $input-focus-box-shadow: none !default;
 
+$alert-border-width: 2px !default;
+
 // Form Feedback Custom Icons
 $form-feedback-icon-valid-color: $success;
 $form-feedback-icon-invalid-color: $danger;
@@ -72,3 +74,5 @@ $form-feedback-icon-invalid: str-replace(
   "#",
   "%23"
 ) !default;
+
+$custom-checkbox-indicator-border-radius: 4px !default;

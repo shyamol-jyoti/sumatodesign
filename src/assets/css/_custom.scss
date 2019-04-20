@@ -27,6 +27,12 @@ svg {
   background-position: 10px right 10px !important;
 }
 
+// .base-multiselect {
+//   .form-control.is-invalid {
+//     background-position: center right 30px !important;
+//   }
+// }
+
 // Helpers
 .cursor-pointer {
   cursor: pointer;
@@ -42,6 +48,25 @@ svg {
 }
 .text-base {
   font-size: 1rem;
+}
+
+// Custom btn-outline-secondary
+.btn-outline-secondary {
+  border-color: $gray-400 !important;
+  color: #606f7b !important;
+
+  &:hover,
+  &:focus {
+    background-color: inherit;
+    color: $primary !important;
+  }
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+  width: 1.2rem;
+  height: 1.2rem;
+  top: 0.1rem;
 }
 
 // Prism.js CSS

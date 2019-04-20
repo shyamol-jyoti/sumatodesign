@@ -5,6 +5,21 @@
 
 		<div class="bg-white p-4 mt-5 rounded shadow-sm">
 			<form @submit.prevent="submitForm">
+				<div class="row">
+					<div class="col-md-4">
+						<base-multiselect
+							label="Select Colors"
+							:items="items"
+							v-model="multiselect"
+							:has-error="errors['multiselect'] ? true : false"
+							@input="delete errors['multiselect']"
+							placeholder="Please select some color..."
+						>
+							<div slot="invalid-feedback">{{ errors['multiselect'] ? errors['multiselect'][0] : '' }}</div>
+						</base-multiselect>
+					</div>
+				</div>
+
 				<base-input
 					:has-error="errors['name'] ? true : false"
 					label="Name"
@@ -85,6 +100,8 @@ import BaseInput from "@/components/BaseInput.vue";
 import BaseInputPassword from "@/components/BaseInputPassword.vue";
 import BaseTextarea from "@/components/BaseTextarea.vue";
 import BaseInputPhonenumber from "@/components/BaseInputPhonenumber.vue";
+import BaseMultiselect from "@/components/BaseMultiselect.vue";
+import BaseTypehead from "@/components/BaseTypehead.vue";
 
 export default {
 	data() {
@@ -94,14 +111,29 @@ export default {
 			content: "",
 			phone: "",
 			number: 0,
-			errors: {}
+			errors: {},
+
+			typehead: [],
+			multiselect: [],
+			items: [
+				"Red",
+				"Green",
+				"Blue",
+				"Orange",
+				"Purple",
+				"Teal",
+				"Brown",
+				"Yellow"
+			]
 		};
 	},
 	components: {
 		BaseButton,
 		BaseInput,
 		BaseInputPassword,
-		BaseTextarea
+		BaseTextarea,
+		BaseMultiselect,
+		BaseTypehead
 	},
 
 	methods: {
@@ -112,7 +144,8 @@ export default {
 					name: ["Name is required"],
 					password: ["Password is required"],
 					content: ["Content is required"],
-					phone: ["Phone is required"]
+					phone: ["Phone is required"],
+					multiselect: ["Field is required"]
 				};
 			}, 0);
 		}

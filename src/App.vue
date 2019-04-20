@@ -8,7 +8,7 @@
 			@click="closeOverlay()"
 		>
 			<div class="d-md-flex">
-				<div class="sidebar-nav bg-white shadow-sm pr-4" :class="{ 'is-open': toggleMenu == true}">
+				<div class="sidebar-nav bg-white shadow pr-4" :class="{ 'is-open': toggleMenu == true}">
 					<sidebar-menu :sidebaritems="sidebaritems" class="sidebar-theme">
 						<template slot="sidebar-brand">
 							<a
@@ -27,7 +27,7 @@
 					</p>
 				</div>
 
-				<div class="col-md-8 mx-auto">
+				<div class="col-md-9 col-lg-9 mx-auto">
 					<nav class="navbar fixed-top navbar-light bg-white shadow-sm border-0">
 						<button
 							type="button"
@@ -48,11 +48,7 @@
 								<path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
 							</svg>
 						</button>
-						<a
-							class="navbar-brand mr-auto mx-1 font-weight-bold"
-							href="#/"
-							style="letter-spacing: -0.05em"
-						>
+						<a class="navbar-brand mr-auto mx-1 text-dark" href="#/" style="letter-spacing: -0.05em">
 							<span class="text-danger font-weight-bold">Sumato</span> Design.
 						</a>
 
@@ -159,6 +155,10 @@ export default {
 							to: "/modal",
 							title: "Modal"
 						},
+						{
+							to: "/multiselect-simple",
+							title: "Multiselect Simple"
+						},
 						// {
 						// 	to: "/",
 						// 	title: "List",
@@ -174,6 +174,12 @@ export default {
 						{
 							to: "/search",
 							title: "Search",
+							roles: []
+							// icon: "home"
+						},
+						{
+							to: "/select",
+							title: "Select",
 							roles: []
 							// icon: "home"
 						},
@@ -295,7 +301,7 @@ body {
 	top: 0;
 	bottom: 0;
 	z-index: 1032;
-	width: 260px;
+	width: 240px;
 	height: 100vh;
 	overflow-y: auto;
 	border-left: 6px solid lighten(#e3342f, 42%);
@@ -305,9 +311,9 @@ body {
 	margin-top: 84px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
 	.sidebar-nav {
-		transform: translate3d(-260px, 0, 0);
+		transform: translate3d(-240px, 0, 0);
 		transition: transform 0.35s ease-in-out;
 	}
 
@@ -320,9 +326,9 @@ body {
 		transition: transform 0.35s ease-in-out;
 	}
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
 	.main-content {
-		transform: translate3d(130px, 0, 0);
+		transform: translate3d(120px, 0, 0);
 		transition: transform 0.35s ease-in-out;
 	}
 }
