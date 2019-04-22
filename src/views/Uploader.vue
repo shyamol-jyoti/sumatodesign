@@ -17,17 +17,47 @@
 			>https://github.com/pqina/vue-filepond</a> respectively.
 		</p>
 
-		<!-- @vdropzone-success="afterSuccess" -->
-		<!-- @vdropzone-removed-file="removeFile" -->
 		<h6 class="mt-5">Example 1 - Vue 2 Dropzone</h6>
-		<vue-dropzone id="upload" :options="config"></vue-dropzone>
+		<vue-dropzone
+			id="upload"
+			:options="config"
+			@vdropzone-success="afterSuccess"
+			@vdropzone-removed-file="removeFileFromDropZone"
+		></vue-dropzone>
+
+		<div class="my-4 shadow bg-white p-4 rounded">
+			<pre class="mb-0">{{ eventImages }}</pre>
+		</div>
 
 		<h6 class="mt-4 mb-3">How to use</h6>
 		<prism-editor language="html" :code="code" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 		<prism-editor language="js" :code="jsCode" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 
 		<h6 class="mt-5 mb-3">Example 2 - Vue FilePond</h6>
-		<div class="p-4 rounded shadow-sm bg-white">Coming sooon..</div>
+
+		<file-pond
+			name="file"
+			ref="file"
+			label-idle="Drop files here..."
+			allow-multiple="true"
+			max-files="3"
+			accepted-file-types="image/jpeg, image/png"
+			server="http://sumatoboard.test/api/images/upload"
+			:files="myFiles"
+			@init="handleFilePondInit"
+			@processfile="getFile"
+			@removefile="removeFile"
+		/>
+		<div class="my-4 shadow bg-white p-4 rounded">
+			<pre class="mb-0">{{ images }}</pre>
+		</div>
+
+		<h6 class="mt-4 mb-3">How to use</h6>
+		<prism-editor language="html" :code="code2" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
+		<prism-editor language="js" :code="jsCode2" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
+
+		<h6 class="mt-4 mb-3">Sample Server Code</h6>
+		<prism-editor language="php" :code="phpCode" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 	</div>
 </template>
 
@@ -82,33 +112,204 @@ export default {
 		},
 
 		afterSuccess(file, response) {
-			// response data from server
-			this.images.push(response.data);
+			console.log(file.name);
+			console.log(response);
+			this.eventImages.push({
+				filename: file.name,
+				serverId: response
+			});
 		},
 
-		removeFile(file, error, xhr) {
-			let fileName = JSON.parse(file.xhr.response).data;
-			this.images.find((event_image, index) => {
-				if (event_image === fileName) {
-					this.images.splice(index, 1);
-				}
-			});
+		removeFileFromDropZone(file, error, xhr) {
+			let fileName = file.xhr.response;
+
+			axios
+				.delete("http://sumatoboard.test/api/images/upload", {
+					data: {
+						file: fileName
+					}
+				})
+				.then(response => {
+					console.log(fileName);
+					this.eventImages.find((eventImage, index) => {
+						if (eventImage.serverId === fileName) {
+							this.eventImages.splice(index, 1);
+						}
+					});
+				})
+				.catch(error => {
+					console.log(error);
+				});
 		}
 	}
 };`;
 
+const code2 = `<file-pond
+	name="file"
+	ref="file"
+	label-idle="Drop files here..."
+	allow-multiple="true"
+	max-files="3"
+	accepted-file-types="image/jpeg, image/png"
+	server="http://sumatoboard.test/api/images/upload"
+	:files="myFiles"
+	@init="handleFilePondInit"
+	@processfile="getFile"
+	@removefile="removeFile"
+/>`;
+
+const jsCode2 = `// Import Vue FilePond
+import vueFilePond from "vue-filepond";
+
+// Import FilePond styles
+import "filepond/dist/filepond.min.css";
+
+// Import FilePond plugins
+// Please note that you need to install these plugins separately
+
+// Import image preview plugin styles
+// import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+// import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+
+// Create component
+const FilePond = vueFilePond(
+	FilePondPluginFileValidateType
+	// FilePondPluginImagePreview
+);
+
+export default {
+	data() {
+		return {
+			myFiles: [],
+			images: []
+		};
+	},
+
+	components: {
+		FilePond
+	},
+
+	methods: {
+		// Filepond
+		handleFilePondInit() {
+			console.log("FilePond has initialized");
+
+			// this.myFiles = this.$refs.file.getFiles();
+			// console.log(this.myFiles);
+
+			// FilePond instance methods are available on this.$refs.file
+		},
+
+		getFile(error, file) {
+			console.log(file.filename);
+			console.log(file.serverId);
+			this.images.push({
+				filename: file.filename,
+				serverId: file.serverId
+			});
+		},
+
+		removeFile(nullValue, file) {
+			console.log(file.filename);
+			let foundImage = this.images.findIndex(
+				image => image.filename === file.filename
+			);
+
+			console.log(foundImage);
+
+			if (foundImage != -1) {
+				this.images.splice(foundImage, 1);
+			}
+		}
+	}
+};`;
+
+const phpCode = `// routes/api.php
+Route::post('/images/upload', 'UploadController@upload');
+Route::delete('/images/upload', 'UploadController@delete');
+
+// Controllers/UploadController.php
+namespace App\\Http\\Controllers;
+
+use Illuminate\\Http\\Request;
+use Illuminate\\Support\\Facades\\Log;
+use Illuminate\\Support\Facades\\Storage;
+
+class UploadController extends Controller
+{
+    public function upload(Request $request)
+    {
+    	if ($request->has('file')) {
+    		// Upload the file
+    		$path = $request->file('file')->store('uploadtests');
+
+	        return $path;
+    		// Return the new file name
+    	}
+    }
+
+    public function delete(Request $request)
+    {
+    	$requestData = $request->get('file');
+    	$data = file_get_contents("php://input");
+    	// Log::info($requestData);
+    	// Log::info($data);
+    	$fileTobeDeleted = $requestData ? $requestData : $data;
+    	if ($fileTobeDeleted) {
+    		$exists = Storage::disk('public')->exists($fileTobeDeleted);
+    		if ($exists) {
+    			Storage::delete($fileTobeDeleted);
+    		}
+    		return 'Deleted';
+    	} else {
+    		return response('file not found', 500);
+    	}
+    }
+}`;
+
+import axios from "axios";
+
 import vueDropzone from "vue2-dropzone";
 import "../assets/css/vue2Dropzone.css";
+
+// Import Vue FilePond
+import vueFilePond from "vue-filepond";
+
+// Import FilePond styles
+import "filepond/dist/filepond.min.css";
+
+// Import FilePond plugins
+// Please note that you need to install these plugins separately
+
+// Import image preview plugin styles
+// import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+// import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+
+// Create component
+const FilePond = vueFilePond(
+	FilePondPluginFileValidateType
+	// FilePondPluginImagePreview
+);
 
 export default {
 	data() {
 		return {
 			code: code,
 			jsCode: jsCode,
+			code2: code2,
+			jsCode2: jsCode2,
+			phpCode: phpCode,
 
+			eventImages: [],
 			// Dropzone Config
 			config: {
-				url: "http://tbassam.test/api/feeds/upload",
+				url: "http://sumatoboard.test/api/images/upload",
 				// url: "http://teaboard.sumato.tech/api/images/upload",
 				maxFilesize: 5, // MB
 				maxFiles: 5,
@@ -118,12 +319,16 @@ export default {
 				thumbnailHeight: 150,
 				addRemoveLinks: true,
 				previewTemplate: this.dropzoneTemplate()
-			}
+			},
+
+			myFiles: [],
+			images: []
 		};
 	},
 
 	components: {
-		vueDropzone
+		vueDropzone,
+		FilePond
 	},
 
 	methods: {
@@ -146,20 +351,83 @@ export default {
 		},
 
 		afterSuccess(file, response) {
-			this.event.event_images.push(response.data);
+			console.log(file.name);
+			console.log(response);
+			this.eventImages.push({
+				filename: file.name,
+				serverId: response
+			});
 		},
 
-		removeFile(file, error, xhr) {
-			let fileName = JSON.parse(file.xhr.response).data;
-			this.event.event_images.find((event_image, index) => {
-				if (event_image === fileName) {
-					this.event.event_images.splice(index, 1);
-				}
+		removeFileFromDropZone(file, error, xhr) {
+			let fileName = file.xhr.response;
+
+			axios
+				.delete("http://sumatoboard.test/api/images/upload", {
+					data: {
+						file: fileName
+					}
+				})
+				.then(response => {
+					console.log(fileName);
+					this.eventImages.find((eventImage, index) => {
+						if (eventImage.serverId === fileName) {
+							this.eventImages.splice(index, 1);
+						}
+					});
+				})
+				.catch(error => {
+					console.log(error);
+				});
+		},
+
+		// Filepond
+		handleFilePondInit() {
+			console.log("FilePond has initialized");
+
+			// this.myFiles = this.$refs.file.getFiles();
+			// console.log(this.myFiles);
+
+			// FilePond instance methods are available on `this.$refs.pond`
+		},
+
+		getFile(error, file) {
+			console.log(file.filename);
+			console.log(file.serverId);
+			this.images.push({
+				filename: file.filename,
+				serverId: file.serverId
 			});
+		},
+
+		removeFile(nullValue, file) {
+			console.log(file.filename);
+			let foundImage = this.images.findIndex(
+				image => image.filename === file.filename
+			);
+
+			console.log(foundImage);
+
+			if (foundImage != -1) {
+				this.images.splice(foundImage, 1);
+			}
 		}
 	}
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.filepond--root {
+	font-family: "Inter UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol";
+}
+/* the background color of the filepond drop area */
+.filepond--panel-root {
+	background-color: #ffffff;
+	border: 2px dashed #dae1e7;
+}
+.filepond--file-action-button {
+	cursor: pointer;
+}
 </style>

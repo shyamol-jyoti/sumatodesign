@@ -562,6 +562,8 @@
   width: 100%;
   top: 35%;
   left: 0;
+  right: 0;
+  text-align: center;
 }
 .vue-dropzone > .dz-preview .dz-error-mark svg,
 .vue-dropzone > .dz-preview .dz-success-mark svg {

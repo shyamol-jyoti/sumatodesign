@@ -142,13 +142,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../assets/css/_variables.scss";
+
 .IZ-select {
 	.IZ-select__input-wrap {
 		margin-bottom: 5px;
 	}
+
+	.IZ-select__input input.form-control.is-invalid {
+		background-position: center right 10px !important;
+	}
+
 	.IZ-select__input,
 	.IZ-select__menu {
-		border-radius: 6px !important;
+		border-radius: $border-radius !important;
 	}
 	.IZ-select__input,
 	.IZ-select__input.IZ-select__input--has-error {
@@ -161,7 +168,7 @@ export default {
 
 	.IZ-select__input.IZ-select__input--has-error input,
 	.IZ-select__error {
-		color: #e3342f !important;
+		color: $danger !important;
 	}
 	.IZ-select__error {
 		margin-top: 0.25rem;

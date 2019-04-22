@@ -108,6 +108,7 @@ Vue.directive("click-outside", {
     document.removeEventListener("touchstart", handleOutsideClick);
   }
 });
+
 new Vue({
   router,
   render: h => h(App)

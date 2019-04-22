@@ -258,6 +258,8 @@ export default {
 }
 @import "../node_modules/vue-prism-editor/dist/VuePrismEditor.css";
 @import "../node_modules/prismjs/themes/prism-tomorrow.css";
+// @import "./assets/css/prism-hopscotch.css";
+
 @import "./assets/css/app.scss";
 
 #app {
@@ -353,11 +355,18 @@ $sidebar-link-hover-bg: lighten(#e3342f, 42%);
 
 	&:hover,
 	&.router-link-exact-active {
-		color: $sidebar-link-hover-color !important;
-		text-decoration: none;
-		background-color: $sidebar-link-hover-bg;
 		border-top-right-radius: 50px;
 		border-bottom-right-radius: 50px;
+		text-decoration: none;
+	}
+
+	&:hover {
+		background-color: lighten(#e3342f, 45%);
+	}
+
+	&.router-link-exact-active {
+		color: $sidebar-link-hover-color !important;
+		background-color: $sidebar-link-hover-bg;
 	}
 }
 </style>
