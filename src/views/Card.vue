@@ -4,6 +4,69 @@
 		<hr class="mb-5">
 
 		<div class="row mb-5">
+			<div class="col-md-3 d-flex align-items-stretch mb-2">
+				<base-card>
+					<div class="d-flex align-items-center">
+						<div class="flex-fill mr-3">
+							<span
+								class="text-uppercase text-muted tracking-wide text-xs mb-2 d-block font-weight-bold"
+							>Orders</span>
+							<div class="h2 mb-0">73.46k</div>
+						</div>
+						<div class="icon-48 rounded-circle bg-blue-100 flex-shrink-0 text-center text-primary">
+							<eva-icon name="layers" animation="pulse" fill="currentColor"></eva-icon>
+						</div>
+					</div>
+				</base-card>
+			</div>
+			<div class="col-md-3 d-flex align-items-stretch mb-2">
+				<base-card>
+					<div class="d-flex align-items-center">
+						<div class="flex-fill mr-3">
+							<span
+								class="text-uppercase text-muted tracking-wide text-xs mb-2 d-block font-weight-bold"
+							>Likes</span>
+							<div class="h2 mb-0">89.4k</div>
+						</div>
+						<div class="icon-48 rounded-circle bg-red-100 flex-shrink-0 text-center text-danger">
+							<eva-icon name="heart" animation="pulse" fill="currentColor"></eva-icon>
+						</div>
+					</div>
+				</base-card>
+			</div>
+			<div class="col-md-3 d-flex align-items-stretch mb-2">
+				<base-card>
+					<div class="d-flex align-items-center">
+						<div class="flex-fill mr-3">
+							<span
+								class="text-uppercase text-muted tracking-wide text-xs mb-2 d-block font-weight-bold"
+							>Customers</span>
+							<div class="h2 mb-0">58.39k</div>
+						</div>
+						<div class="icon-48 rounded-circle bg-green-100 flex-shrink-0 text-center text-success">
+							<eva-icon name="people" animation="pulse" fill="currentColor"></eva-icon>
+						</div>
+					</div>
+				</base-card>
+			</div>
+			<div class="col-md-3 d-flex align-items-stretch mb-2">
+				<base-card>
+					<div class="d-flex align-items-center">
+						<div class="flex-fill mr-3">
+							<span
+								class="text-uppercase text-muted tracking-wide text-xs mb-2 d-block font-weight-bold"
+							>Sales</span>
+							<div class="h2 mb-0">467</div>
+						</div>
+						<div class="icon-48 rounded-circle bg-yellow-100 flex-shrink-0 text-center text-warning">
+							<eva-icon name="shopping-cart" animation="pulse" fill="currentColor"></eva-icon>
+						</div>
+					</div>
+				</base-card>
+			</div>
+		</div>
+
+		<div class="row mb-5">
 			<div class="col-md-4">
 				<base-card with-header>
 					<template slot="header">Bar Chart</template>

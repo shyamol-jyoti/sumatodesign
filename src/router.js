@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 
 import Alert from "./views/Alert.vue";
+import Badge from "./views/Badge.vue";
 import Button from "./views/Button.vue";
 import Card from "./views/Card.vue";
 import Checkbox from "./views/Checkbox.vue";
@@ -10,6 +11,7 @@ import Colors from "./views/Colors.vue";
 import Confirm from "./views/Confirm.vue";
 import Datepicker from "./views/Datepicker.vue";
 import Dropdown from "./views/Dropdown.vue";
+import EmptyState from "./views/EmptyState.vue";
 import Icons from "./views/Icons.vue";
 import Input from "./views/Input.vue";
 import Modal from "./views/Modal.vue";
@@ -35,6 +37,12 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+
+    {
+      path: "/badge",
+      name: "badge",
+      component: Badge
     },
 
     {
@@ -118,6 +126,12 @@ export default new Router({
       path: "/select",
       name: "select",
       component: Select
+    },
+
+    {
+      path: "/empty-states",
+      name: "empty-states",
+      component: EmptyState
     },
 
     {

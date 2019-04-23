@@ -39,7 +39,7 @@
 
 		<h6 class="mt-5">Example with Custom label</h6>
 		<base-radio
-			classes="border p-3 rounded col-4"
+			classes="border border-width-2px p-3 rounded-lg bg-white w-50"
 			label="Payment Mode"
 			help-text="Please select aleast one"
 			v-model="paymentModeSelected"
@@ -50,7 +50,7 @@
 		>
 			<template slot-scope="option">
 				<div class="d-flex">
-					<div class>
+					<div class="pl-2">
 						<h5>{{ option.row.label }}</h5>
 						<span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
 					</div>
@@ -65,6 +65,36 @@
 		<h6 class="mt-4 mb-3">How to use</h6>
 		<prism-editor language="html" :code="code3" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 
+		<h6 class="mt-5">Example with Custom Active</h6>
+		<base-radio
+			classes="border border-width-2px cursor-pointer pl-2 pr-4 py-3 rounded-lg bg-white w-25"
+			label="Select your plan"
+			help-text="Please select aleast one"
+			v-model="planSelected"
+			:options="plans"
+			name="paymentMode"
+			:stacked="false"
+			size="large"
+			:custom-active="true"
+			custom-active-class="text-primary"
+		>
+			<template slot-scope="option">
+				<div class="d-flex">
+					<div class="pl-2">
+						<h5 class="text-truncate">{{ option.row.label }}</h5>
+						<span v-if="option.row.label == 'Free Forever'">Get help from our support team.</span>
+						<span v-if="option.row.label == 'For Work'">Get priority support.</span>
+						<span v-if="option.row.label == 'For Teams'">Get all our premium features.</span>
+					</div>
+				</div>
+			</template>
+		</base-radio>
+
+		<div class="alert alert-light shadow-sm my-3">
+			<code class="mb-0">{{ planSelected }}</code>
+		</div>
+
+		<prism-editor language="html" :code="code5" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 		<prism-editor language="js" :code="jsCode" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
 
 		<h6 class="mt-5 mb-3">Example without components</h6>
@@ -98,7 +128,7 @@ const code2 = `<base-radio v-model="colorType" :options="colors" name="color" :s
 </base-radio>`;
 
 const code3 = `<base-radio
-	classes="border p-3 rounded col-4"
+	classes="border p-3 rounded"
 	label="Payment Mode"
 	help-text="Please select aleast one"
 	v-model="paymentModeSelected"
@@ -109,8 +139,30 @@ const code3 = `<base-radio
 >
 	<template scope="option">
 		<div class="d-flex">
-			<div class>
+			<div class="pl-2">
 				<h5>{{ option.row.label }}</h5>
+				<span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+			</div>
+		</div>
+	</template>
+</base-radio>`;
+
+const code5 = `<base-radio
+	classes="border border-width-2px cursor-pointer pl-2 pr-4 py-3 rounded-lg bg-white w-25"
+	label="Select your plan"
+	help-text="Please select aleast one"
+	v-model="planSelected"
+	:options="plans"
+	name="paymentMode"
+	:stacked="false"
+	size="large"
+	:custom-active="true"
+	custom-active-class="text-primary"
+>
+	<template slot-scope="option">
+		<div class="d-flex">
+			<div class="pl-2">
+				<h5 class="text-truncate">{{ option.row.label }}</h5>
 				<span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
 			</div>
 		</div>
@@ -174,6 +226,7 @@ export default {
 			code2: code2,
 			code3: code3,
 			code4: code4,
+			code5: code5,
 			jsCode: jsCode,
 
 			genderType: "male",
@@ -200,7 +253,23 @@ export default {
 					value: "cash"
 				}
 			],
-			paymentModeSelected: "cash"
+			paymentModeSelected: "cash",
+
+			plans: [
+				{
+					label: "Free Forever",
+					value: "free-forever"
+				},
+				{
+					label: "For Work",
+					value: "for-work"
+				},
+				{
+					label: "For Teams",
+					value: "for-teams"
+				}
+			],
+			planSelected: "free-forever"
 		};
 	},
 	components: {

@@ -49,6 +49,46 @@ svg {
 .text-base {
   font-size: 1rem;
 }
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.text-link {
+  color: $gray-700 !important;
+
+  &:hover {
+    color: $primary !important;
+  }
+}
+
+.icon-32 {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.icon-48 {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+}
+.icon-64 {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+}
+
+.bg-red-100 {
+  background-color: $red-100 !important;
+}
+.bg-blue-100 {
+  background-color: $blue-100 !important;
+}
+.bg-green-100 {
+  background-color: $green-100 !important;
+}
+.bg-yellow-100 {
+  background-color: $yellow-100 !important;
+}
 
 // Custom btn-outline-secondary
 .btn-outline-secondary {

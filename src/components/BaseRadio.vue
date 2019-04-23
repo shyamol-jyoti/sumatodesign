@@ -2,25 +2,58 @@
 	<div>
 		<label class="mb-1 d-block">{{ label }}</label>
 		<label
-			class="align-items-center mb-2 clearfix"
-			:class="[{'d-inline-flex mr-4': stacked == false, 'd-flex w-100': stacked == true}, classes]"
+			class="align-items-center mb-2 clearfix position-relative"
+			:class="[{'d-inline-flex mr-4': stacked == false, 'd-flex w-100': stacked == true}, classes, { 'border-primary': modelValue == option.value && customActive == true && customActiveClass == 'text-primary','border-danger': modelValue == option.value && customActive == true && customActiveClass == 'text-danger', 'border-info': modelValue == option.value && customActive == true && customActiveClass == 'text-info'}]"
 			v-for="option in options"
 			:key="option.value"
 			:for="option.value"
 		>
-			<!-- Input element for the radio button -->
-			<input
-				:id="option.value"
-				type="radio"
-				class="check-custom"
-				:name="name"
-				:checked="modelValue == option.value ? true : false"
-				@change="$emit('change', option.value)"
-			>
-			<!-- Customization element for the radio button -->
-			<span class="check-toggle flex-shrink-0" :class="sizeClass"></span>
+			<template v-if="customActive == false">
+				<!-- Input element for the radio button -->
+				<input
+					:id="option.value"
+					type="radio"
+					class="check-custom"
+					:name="name"
+					:checked="modelValue == option.value ? true : false"
+					@change="$emit('change', option.value)"
+				>
+				<!-- Customization element for the radio button -->
+				<span class="check-toggle flex-shrink-0" :class="sizeClass"></span>
+			</template>
 
-			<span class="ml-3">
+			<template v-else>
+				<!-- Input element for the radio button -->
+				<input
+					:id="option.value"
+					type="radio"
+					class="check-custom"
+					:name="name"
+					:checked="modelValue == option.value ? true : false"
+					@change="$emit('change', option.value)"
+				>
+				<span
+					class="position-absolute"
+					:class="customActiveClass"
+					v-if="customActive"
+					style="top: 15px; right: 22px; z-index: 1"
+				>
+					<svg
+						v-if="modelValue == option.value"
+						xmlns="http://www.w3.org/2000/svg"
+						class="fill-current"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+					>
+						<path
+							d="M12,2C6.486,2,2,6.486,2,12c0,5.514,4.486,10,10,10s10-4.486,10-10C22,6.486,17.514,2,12,2z M10.001,16.413l-3.713-3.705 L7.7,11.292l2.299,2.295l5.794-5.794l1.414,1.414L10.001,16.413z"
+						></path>
+					</svg>
+				</span>
+			</template>
+
+			<span class="ml-2">
 				<slot :row="option"></slot>
 			</span>
 		</label>
@@ -68,6 +101,14 @@ export default {
 		},
 		classes: {
 			type: String
+		},
+		customActive: {
+			type: Boolean,
+			default: false
+		},
+		customActiveClass: {
+			type: String,
+			default: "text-primary"
 		}
 	},
 

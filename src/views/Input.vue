@@ -3,6 +3,37 @@
 		<h3 class="mb-3">Inputs</h3>
 		<hr>
 
+		<h6 class="mt-5 mb-3">Eaxmple: Basic Input</h6>
+		<div class="bg-white p-4 rounded shadow">
+			<base-input
+				:has-error="errors['name'] ? true : false"
+				label="Name"
+				help-text="Please enter your complete name"
+				v-model="name"
+				id="name"
+				placeholder="Please enter your name..."
+				@keydown="delete errors['name']"
+			>
+				<div slot="invalid-feedback">Please provide a name.</div>
+			</base-input>
+
+			<base-input-password
+				:has-error="errors['password'] ? true : false"
+				label="Password"
+				help-text="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji."
+				v-model="password"
+				id="password"
+				placeholder="More than 8 characters..."
+				@keydown="delete errors['password']"
+			>
+				<div slot="invalid-feedback">Please enter a password.</div>
+			</base-input-password>
+		</div>
+
+		<h6 class="mt-5 mb-3">How to use</h6>
+		<prism-editor language="html" :code="code" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
+		<prism-editor language="js" :code="jsCode" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
+
 		<div class="bg-white p-4 mt-5 rounded shadow-sm">
 			<form @submit.prevent="submitForm">
 				<div class="row">
@@ -95,6 +126,84 @@
 </template>
 
 <script>
+const code = `<base-input
+	:has-error="isInvalid && errors['name'] ? true : false" 
+	label="Name" 
+	help-text="Please enter your complete name"  
+	v-model="name"
+	id="name"
+	placeholder="Please enter your name..."  
+	@keydown="delete errors['name']"
+>
+	<div slot="invalid-feedback" v-if="isInvalid && errors['name']">
+		{{ errors['name'][0] }}
+	</div>
+</base-input>
+
+// Password Input
+<base-input-password
+	:has-error="isInvalid && errors['password'] ? true : false"
+	label="Password"
+	help-text="Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji."
+	v-model="password"
+	id="password"
+	placeholder="More than 8 characters..."
+	@keydown="delete errors['password']"
+>
+	<div slot="invalid-feedback" v-if="isInvalid && errors['password']">
+		{{ errors['password'][0] }}
+	</div>
+</base-input-password>
+
+// Numeric With Float
+<base-input
+	v-numeric-float
+	:has-error="errors['number'] ? true : false"
+	label="Number"
+	v-model.number="number"
+	id="number"
+	placeholder="Please enter a numeric value..."
+	@keydown="delete errors['number']"
+>
+	<div slot="invalid-feedback">Please enter a numeric value.</div>
+</base-input>
+
+// Only Numeric value Input
+<base-input
+	v-numeric-only
+	:has-error="errors['phone'] ? true : false"
+	label="Phone Number"
+	v-model.number="phone"
+	id="phone"
+	placeholder="Please enter a valid 10 digit phone"
+	@keydown="delete errors['phone']"
+>
+	<div slot="invalid-feedback">Please enter a phone number.</div>
+</base-input>`;
+
+const jsCode = `import BaseInput from "@/components/BaseInput.vue";
+import BaseInputPassword from "@/components/BaseInputPassword.vue";
+
+export default {
+	data() {
+		return {
+			name: "",
+			password: "",
+
+			errors: {}
+		};
+	},
+	components: {
+		BaseInput,
+		BaseInputPassword
+	},
+	computed: {
+		isInvalid() {
+			return Object.keys(this.errors).length > 0 ? true : false;
+		}
+	}
+};`;
+
 import BaseButton from "@/components/BaseButton.vue";
 import BaseInput from "@/components/BaseInput.vue";
 import BaseInputPassword from "@/components/BaseInputPassword.vue";
@@ -106,6 +215,9 @@ import BaseTypehead from "@/components/BaseTypehead.vue";
 export default {
 	data() {
 		return {
+			code: code,
+			jsCode: jsCode,
+
 			name: "",
 			password: "",
 			content: "",

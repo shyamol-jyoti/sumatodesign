@@ -116,6 +116,12 @@ export default {
 							// icon: "home"
 						},
 						{
+							to: "/badge",
+							title: "Badge",
+							roles: []
+							// icon: "home"
+						},
+						{
 							to: "/button",
 							title: "Button",
 							roles: []
@@ -146,6 +152,10 @@ export default {
 						{
 							to: "/dropdown",
 							title: "Dropdown Menu"
+						},
+						{
+							to: "/empty-states",
+							title: "Empty State"
 						},
 						{
 							to: "/input",
@@ -257,8 +267,8 @@ export default {
 	--ck-border-radius: 6px;
 }
 @import "../node_modules/vue-prism-editor/dist/VuePrismEditor.css";
-@import "../node_modules/prismjs/themes/prism-tomorrow.css";
-// @import "./assets/css/prism-hopscotch.css";
+// @import "../node_modules/prismjs/themes/prism-tomorrow.css";
+@import "./assets/css/prism-hopscotch.css";
 
 @import "./assets/css/app.scss";
 

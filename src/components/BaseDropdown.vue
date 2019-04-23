@@ -12,22 +12,26 @@
 			@click.prevent="showDropDown = !showDropDown"
 		>
 			<div class="d-flex align-items-center base-dropdown-button">
-				<span class="mr-1">
+				<div class="mr-1">
 					<slot name="dropdown-title"></slot>
-				</span>
+				</div>
 				<span v-if="icon">
 					<svg
 						v-if="showDropDown"
-						class="d-inline-block fill-current h5"
+						class="d-inline-block fill-current text-muted"
 						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
 						viewBox="0 0 20 20"
 					>
 						<path d="M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z"></path>
 					</svg>
 					<svg
 						v-else
-						class="d-inline-block fill-current h5"
+						class="d-inline-block text-muted fill-current"
 						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
 						viewBox="0 0 20 20"
 					>
 						<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
@@ -37,7 +41,7 @@
 		</div>
 		<transition name="slide-fade">
 			<div
-				class="base-dropdown position-absolute mt-2 z-1800 bg-white rounded shadow px-3 py-2 arrow"
+				class="base-dropdown position-absolute mt-1 z-1800 bg-white rounded-lg shadow px-3 py-3 arrow"
 				v-show="showDropDown"
 				:class="{ 'left': align == 'left', 'right': align == 'right' }"
 			>
@@ -53,7 +57,7 @@ export default {
 	props: {
 		icon: {
 			type: Boolean,
-			default: true
+			default: false
 		},
 		arrowAlign: {
 			type: String
@@ -96,7 +100,7 @@ export default {
 }
 
 .base-dropdown {
-	min-width: 140px;
+	min-width: 180px;
 }
 
 .base-dropdown.left {
@@ -117,14 +121,14 @@ export default {
 	left: 50%;
 	margin-left: -10px;
 	position: absolute;
-	top: -17px;
+	top: -18px;
 }
 .arrow-right .arrow:before {
 	left: auto !important;
-	right: 12px !important;
+	right: 24px !important;
 }
 .arrow-left .arrow:before {
 	right: auto !important;
-	left: 16px !important;
+	left: 24px !important;
 }
 </style>
