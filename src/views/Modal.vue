@@ -4,6 +4,7 @@
 		<hr>
 
 		<base-button class="btn btn-primary" type="button" @click="showModal = true">Open Modal</base-button>
+		<base-button class="btn btn-danger" type="button" @click="showModalDanger = true">Delete Modal</base-button>
 
 		<h6 class="mt-5 mb-3">How to use</h6>
 		<prism-editor language="html" :code="code" :line-numbers="true" class="rounded-lg mb-4"></prism-editor>
@@ -32,11 +33,33 @@
 				</div>
 			</template>
 		</base-modal>
+
+		<base-modal :show="showModalDanger" @close="showModalDanger = false" class="text-center" type="danger">
+			<template slot="title">Delete Invoice?</template>
+			<template slot="body">
+				<p>You will permanently loose your </p>
+				<ul class="list-unstyled">
+					<li>
+						- invoice
+					</li>
+					<li>
+						- balance
+					</li>
+				</ul> 
+
+				<div class="text-right mt-5">
+					<base-button class="btn btn-outline-secondary" type="button" @click="showModalDanger = false">Cancel</base-button>
+					<base-button class="btn btn-danger" type="button">Delete Invoice</base-button>
+				</div>
+			</template> 
+		</base-modal>
 	</div>
 </template>
 
 <script>
-const code = `<base-button class="btn btn-danger" type="button" @click="showModal = true">Confirm Delete?</base-button>
+const code = `		
+<base-button class="btn btn-primary" type="button" @click="showModal = true">Open Modal</base-button>
+<base-button class="btn btn-danger" type="button" @click="showModalDanger = true">Open Modal</base-button>
 
 <base-modal :show="showModal" @close="showModal = false">
 	<template slot="title">Create New Role</template>
@@ -60,6 +83,26 @@ const code = `<base-button class="btn btn-danger" type="button" @click="showModa
 			<base-button class="btn btn-primary" type="button">Create</base-button>
 		</div>
 	</template>
+</base-modal>
+
+<base-modal :show="showModalDanger" @close="showModalDanger = false" class="text-center" type="danger">
+	<template slot="title">Delete Invoice?</template>
+	<template slot="body">
+		<p>You will permanently loose your </p>
+		<ul class="list-unstyled">
+			<li>
+				- invoice
+			</li>
+			<li>
+				- balance
+			</li>
+		</ul> 
+
+		<div class="text-right mt-5">
+			<base-button class="btn btn-outline-secondary" type="button" @click="showModalDanger = false">Cancel</base-button>
+			<base-button class="btn btn-danger" type="button">Delete Invoice</base-button>
+		</div>
+	</template> 
 </base-modal>`;
 
 const jsCode = `import BaseModal from "@/components/BaseModal.vue";
@@ -75,6 +118,7 @@ export default {
 	data() {
 		return {
 			showModal: false,
+			showModalDanger: false
 
 			role: {
 				name: "",
@@ -99,6 +143,7 @@ export default {
 			code: code,
 			jsCode: jsCode,
 			showModal: false,
+			showModalDanger: false,
 
 			role: {
 				name: "",

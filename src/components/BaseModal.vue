@@ -1,8 +1,15 @@
 <template>
-	<portal to="modal-destination">
+	<!-- <portal to="modal-destination"> -->
 		<transition name="modal">
 			<div class="modal-mask" @click="close" v-show="show">
-				<div class="modal-container my-5 p-4" @click.stop>
+				<div class="modal-container my-5 p-4" @click.stop :class="{'border-top-4 border-danger': type && type == 'danger'}">
+					<div class="mb-4" style="margin-top:-50px;" v-show="type && type == 'danger'"> 
+						<div class="text-center">
+							<span class="rounded-circle bg-danger d-flex align-items-center justify-content-center mx-auto" style="width:50px;height:50px;">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M5 8v12c0 1.104.896 2 2 2h10c1.104 0 2-.896 2-2V8c0 0-.447 0-1 0H6C5.447 8 5 8 5 8zM14 11h2v8h-2V11zM8 11h2v8H8V11zM16 6L21 6 21 4 16.618 4 15 2 9 2 7.382 4 3 4 3 6 8 6z"/></svg>
+							</span> 
+						</div> 
+					</div>
 					<h5 class="font-weight-bold">
 						<slot name="title"></slot>
 					</h5>
@@ -10,7 +17,7 @@
 				</div>
 			</div>
 		</transition>
-	</portal>
+	<!-- </portal> -->
 </template>
 
 <script>
@@ -21,7 +28,11 @@ export default {
 		show: {
 			type: Boolean,
 			default: false
-		}
+        },
+        type: {
+            type: String,
+			default: null 
+        }
 	},
 
 	methods: {
@@ -40,7 +51,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss"> 
+.border-top-4 {
+    border-top: 4px solid #dee2e6;
+} 
 .modal-mask {
 	position: fixed;
 	z-index: 9998;
